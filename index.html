@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="logo:title" content="Geoff Main Site ">
+<meta property="logo:description" content="This is Geoff Website main page.">
+<meta property="logo:image" content="logo.png">
+<meta property="logo:type" content="website">
+<meta property="logo:site_name" content="Geoff Main Site.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" sizes="192x192" href="logo.png">
+<meta name="mobile-web-app-capable" content="yes">
+		<title> Profile information </title>
+</head>
+<body>
+		<div class="d-element">
+		<h1 class="h2-element"> Profile:</h1>
+		<p id="viewer-count" class="p-element">0 viewers</p>
+		<img src="logo1.png" width="240px" height="230px" style="border-radius: 100px">
+		<br>
+		<p style="color: lime" class="code">
+				Hello User Thank you for visiting my website profile information, Why did i build this website, but that i can explain it to you,</p>
+		<a href="freespace.html" class="a-element">Click Here!</a>
+		<br><br>		
+</div>
+		<div class="d-element">
+				<h1 class="h11-element">| About Me |</h1>
+				<hr>			
+				<h3>Visit my Facebook Official Account</h3><a href="https://www.facebook.com/profile.php?id=61558748810480">Facebook-Account</a>
+				<br><hr>
+				<h2>Name:</h2>
+				<p>Geoff Andrei Jordan</p>
+				<hr>
+				<h2>Skill</h2>
+				<p style="color: lightblue">HTML</p>
+				<p style="color: orange">CSS</p>
+				<p style="color: yellow">JAVASCRIPT</p>
+				<p>But i don't know much but tiny little bit i know on javascript</p>
+		</div>
+						<p>Thank you for visiting my website</p>
+		<style>
+.h11-element {
+		color: #898989;
+		text-shadow: 1px 1px 1px white;
+}
+.d-element {
+		border: 1px solid white;
+}
+.footer {
+    background-color: #011;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: #898989;
+    margin-top: 35px;
+    border-top: 1px solid #00ff00;
+    bottom: 0;
+    left: 0;
+    width: 94%;
+}
+.footer p {
+    margin: 0;
+    display: inline-block;
+    margin-right: 30px;
+}
+		</style>
+		<script src="script.js"></script>
+<div class="footer">
+         <p>| ©️ Geoff All Rights Reserved 2024 |</p>
+         <p>Time: <span id="time"></span>
+         </p>
+         <p>Ping: <span id="ping"></span>
+         </p>
+      </div>
+<script>
+function measurePing() {
+  var xhr = new XMLHttpRequest();
+  var startTime, endTime;
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      endTime = Date.now();
+      var pingTime = endTime - startTime;
+      document.getElementById("ping").textContent = pingTime + " ms";
+    }
+  };
+  xhr.open("GET", location.href + "?t=" + new Date().getTime());
+  startTime = Date.now();
+  xhr.send();
+}
+setInterval(measurePing, 1000);
+
+function updateTime() {
+  const now = new Date();
+  const options = {
+    timeZone: 'Asia/Manila',
+    hour12: true,
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric'
+  };
+  const formattedTime = now.toLocaleString('en-US', options);
+  document.getElementById('time').textContent = formattedTime;
+}
+updateTime();
+setInterval(updateTime, 1000);
+</script>
+</body>
+</html>

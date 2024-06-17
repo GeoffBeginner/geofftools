@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="logo:title" content="FreeSpace informations">
+<meta property="logo:description" content="This is Geoff website.">
+<meta property="logo:image" content="logo.png">
+<meta property="logo:type" content="website">
+<meta property="logo:site_name" content="Geoff Website">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" sizes="192x192" href="logo.png">
+<meta name="mobile-web-app-capable" content="yes">
+	<title>freeSpace Explain</title>
+</head>
+<body>
+		<h1 class="h1-element">
+			⬇️freeSpace Explain⬇️
+		</h1>
+		<div class="div1-element">
+		<p class="h1-element">Why did I build this website? Because when I started learning JavaScript and created many projects, I encountered some errors. So, I realized that,<br><br>"maybe i should build a simple site without encountering errors"</p>
+		</div>
+		<br>
+				<h1 class="h1-element" style="color: #011; text-shadow: 1px 1px 1px white">TOOLS</h1>
+		<div class="div-element">
+					<a class="a" href="todolist.html">TO-DO-LIST</a>
+		</div>
+		<div class="div-element">
+				<a class="a" href="calculator.html">CALCULATOR</a>
+		</div>
+				<div class="div-element">
+						<a class="a" href="githubuser.html">GITHUB USER FOUNDER</a>
+				</div>
+		
+		
+<style>
+body {
+	font-family: Arial, sans-serif;
+	margin: 10px;
+}
+.div1-element {
+		border:1px solid lime;
+		border-radius: 10px;
+		padding: 10px;
+}
+	.div-element {
+			margin-bottom: 20px;
+	}
+	.footer {
+    background-color: #011;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #898989;
+    margin-top: 35px;
+    border-top: 1px solid #00ff00;
+    bottom: 0;
+    left: 0;
+    width: 94%;
+}
+.footer p {
+    margin: 0;
+    display: inline-block;
+    margin-right: 30px;
+}
+.a {
+		   text-decoration: none;
+		   color: #898989;
+		   background-color: #011;
+		   border-radius: 10px;
+		   border: 1px solid #011;
+}
+		</style>
+<a href="index.html" class="a-element">Back</a>
+<br>
+<div class="footer">
+         <p>| ©️ Geoff All Rights Reserved 2024 |</p>
+         <p>Time: <span id="time"></span>
+         </p>
+         <p>Ping: <span id="ping"></span>
+         </p>
+      </div>
+<script>
+function measurePing() {
+  var xhr = new XMLHttpRequest();
+  var startTime, endTime;
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      endTime = Date.now();
+      var pingTime = endTime - startTime;
+      document.getElementById("ping").textContent = pingTime + " ms";
+    }
+  };
+  xhr.open("GET", location.href + "?t=" + new Date().getTime());
+  startTime = Date.now();
+  xhr.send();
+}
+setInterval(measurePing, 1000);
+
+function updateTime() {
+  const now = new Date();
+  const options = {
+    timeZone: 'Asia/Manila',
+    hour12: true,
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric'
+  };
+  const formattedTime = now.toLocaleString('en-US', options);
+  document.getElementById('time').textContent = formattedTime;
+}
+updateTime();
+setInterval(updateTime, 1000);
+</script>
+</body>
+</html>

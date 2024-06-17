@@ -1,0 +1,6 @@
+{
+  "scripts": {
+   "main": "index.js",
+    "build": "[my-framework] build --output public"
+  }
+}

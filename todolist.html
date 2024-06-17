@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="logo:title" content="Geoff Website.">
+<meta property="logo:description" content="This is Geoff Website.">
+<meta property="logo:image" content="logo.png">
+<meta property="logo:type" content="website">
+<meta property="logo:site_name" content="Geoff Website">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" sizes="192x192" href="logo.png">
+<meta name="mobile-web-app-capable" content="yes">
+		<title>To-Do-List</title>
+</head>
+<body>
+			<h1>To-Do List</h1>
+	<input type="text" id="new-task" placeholder="Enter new task">
+		<button id="add-task">Add Task</button>
+		<div class="diver-element">
+				LIST
+	<ul id="task-list">
+	</ul>
+		</div>
+		<style>
+body {
+		font-family: monospace;
+}
+.diver-element {
+		border: 1px solid lime;
+		border-radius: 10px;
+		margin-bottom: 20px;
+}
+#task-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#task-list li {
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+#task-list li:last-child {
+	border-bottom: none;
+}
+
+.delete-button {
+	cursor: pointer;
+	color: #fff;
+	background-color: #4CAF50;
+		margin-left: 10px;
+}
+
+.delete-button:hover {
+	color: #red;
+}
+
+#new-task {
+	width: 200px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.footer {
+    background-color: #011;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #898989;
+    margin-top: 35px;
+    border-top: 1px solid #00ff00;
+		   position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.footer p {
+    margin: 0;
+    display: inline-block;
+    margin-right: 30px;
+}
+#add-task {
+	background-color: #4CAF50;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+#add-task:hover {
+	background-color: #3e8e41;
+}	
+		</style>
+
+	<script>
+let taskList = document.getElementById('task-list');
+let newTaskInput = document.getElementById('new-task');
+let addTaskButton = document.getElementById('add-task');
+
+addTaskButton.addEventListener('click', addTask);
+
+function addTask() {
+	let newTask = newTaskInput.value.trim();
+	if (newTask) {
+		let taskListItem = document.createElement('li');
+		taskListItem.textContent = newTask;
+		let deleteButton = document.createElement('button');
+		deleteButton.textContent = 'Delete';
+		deleteButton.className = 'delete-button';
+		deleteButton.addEventListener('click', deleteTask);
+		taskListItem.appendChild(deleteButton);
+		taskList.appendChild(taskListItem);
+		newTaskInput.value = '';
+	}
+}
+
+function deleteTask(event) {
+	let taskListItem = event.target.parentNode;
+	taskList.removeChild(taskListItem);
+}
+
+newTaskInput.addEventListener('keypress', function(event) {
+	if (event.key === 'Enter') {
+		addTask();
+	}
+});
+</script>
+<div class="footer">
+         <p>| ©️ Geoff All Rights Reserved 2024 |</p>
+         <p>Time: <span id="time"></span>
+         </p>
+         <p>Ping: <span id="ping"></span>
+         </p>
+      </div>
+<script>
+function measurePing() {
+  var xhr = new XMLHttpRequest();
+  var startTime, endTime;
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      endTime = Date.now();
+      var pingTime = endTime - startTime;
+      document.getElementById("ping").textContent = pingTime + " ms";
+    }
+  };
+  xhr.open("GET", location.href + "?t=" + new Date().getTime());
+  startTime = Date.now();
+  xhr.send();
+}
+setInterval(measurePing, 1000);
+
+function updateTime() {
+  const now = new Date();
+  const options = {
+    timeZone: 'Asia/Manila',
+    hour12: true,
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric'
+  };
+  const formattedTime = now.toLocaleString('en-US', options);
+  document.getElementById('time').textContent = formattedTime;
+}
+updateTime();
+setInterval(updateTime, 1000);
+</script>
+<a class="a-element" href="freespace.html">Back</a>
+</body>
+</html>

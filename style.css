@@ -1,0 +1,60 @@
+body {
+		background-color: #000;
+		color: #898989;
+		text-align: center;
+		font-family: monospace;
+}
+@keyframes slideInLeft {
+		from {
+				transform: translateX(-300px);
+		}
+		to {
+				transform: translateX(0);
+		}
+}
+.p-element {
+		animation-name: slideInLeft;
+		animation-duration: 1s;
+		animation-timing-function: ease-in;
+		animation-delay: 0s;
+		animation-iteration-count: 1;
+		animation-direction: normal;
+}
+.h1-element {
+		animation-name: slideInLeft;
+		animation-duration: 1s;
+		animation-timing-function: ease-in;
+		animation-delay: 0s;
+		animation-iteration-count: 1;
+		animation-direction: normal;
+}
+.h2-element {
+		animation-name: slideInLeft;
+		animation-duration: 1s;
+		animation-timing-function: ease-in;
+		animation-delay: 0s;
+		animation-iteration-count: 1;
+		animation-direction: normal;
+}
+.code {
+		animation-name: slideInLeft;
+		animation-duration: 1s;
+		animation-timing-function: ease-in;
+		animation-delay: 0s;
+		animation-iteration-count: 1;
+		animation-direction: normal;
+		margin-bottom: 10px;
+}
+.a-element {
+		text-decoration: none;
+		background-color: #4CAF50;
+		color: #fff;
+		padding: 5px;
+		border-radius: 10px;
+		border: 1px solid #000;
+}
+.div-element {
+		background-color: #011;
+		margin: 10px;
+		padding: 5px;
+}
